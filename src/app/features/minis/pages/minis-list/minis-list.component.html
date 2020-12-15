@@ -1,0 +1,27 @@
+<app-search-bar class="uk-display-block uk-border-bottom"></app-search-bar>
+
+<div class="uk-padding">
+
+  <ng-container *ngIf="minis else loadingMinisTemplate;">
+
+    <div *ngIf="minis.length else noMinisTemplate;" class="uk-grid uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l" uk-grid="masonry: true">
+
+      <app-mini-card *ngFor="let mini of minis" [mini]="mini"></app-mini-card>
+
+    </div>
+
+  </ng-container>
+
+</div>
+
+<ng-template #noMinisTemplate>
+
+  <app-empty-state [icon]="'dice-d20'" [text]="'minisListPage.empty' | translate"></app-empty-state>
+
+</ng-template>
+
+<ng-template #loadingMinisTemplate>
+
+  <app-empty-state [spin]="true" [icon]="'spinner'" [text]="'minisListPage.loading' | translate"></app-empty-state>
+
+</ng-template>

@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+// 1. Your custom variables and variable overwrites.
+@import "./theme/variables";
+
+// 2. Import default variables and available mixins.
+@import "../node_modules/uikit/src/scss/variables-theme.scss";
+@import "../node_modules/uikit/src/scss/mixins-theme.scss";
+
+// Utils
+@import "./theme/utils/scrollbars";
+@import "./theme/utils/backgrounds";
+@import "./theme/utils/borders";
+@import "./theme/utils/forms";
+@import "./theme/utils/misc";
+
+// Components
+@import "./theme/components/buttons";
+@import "./theme/components/tables";
+@import "./theme/components/dropdowns";
+@import "./theme/components/tabs";
+@import "./theme/components/notifications";
+@import "./theme/components/cards";
+
+// 4. Import UIkit.
+@import "../node_modules/uikit/src/scss/uikit-theme.scss";

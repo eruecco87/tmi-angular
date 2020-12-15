@@ -1,0 +1,47 @@
+@import "../../node_modules/uikit/src/scss/variables-theme.scss";
+
+// Animations
+$animation-duration: 0.2s;
+$animation-fast-duration: $animation-duration / 2;
+$animation-background-color: background-color $animation-duration;
+$animation-layout: all $animation-duration;
+
+// Colors
+$global-primary-color: #64827a;
+$global-secondary-color: #2c4a43;
+$global-info-color: #2d76ba;
+
+// Texts
+$text-primary-color: $global-primary-color;
+$text-secondary-color: $global-secondary-color;
+
+// Links
+$global-link-color: $global-primary-color;
+$base-link-color: $global-link-color;
+$base-link-hover-color: darken($global-link-color, 5);
+
+// Buttons
+$button-primary-background: $global-primary-color;
+$button-primary-hover-background: darken($global-primary-color, 5);
+$button-primary-active-background: $button-primary-hover-background;
+
+$button-secondary-background: $global-secondary-color;
+$button-secondary-hover-background: darken($global-secondary-color, 5);
+$button-secondary-active-background: $button-secondary-hover-background;
+
+// Backgrounds
+$global-primary-background: $global-primary-color;
+$global-secondary-background: $global-secondary-color;
+$global-info-background: $global-info-color;
+
+// Borders
+$border-size: 1px;
+$border-color-light: $global-border;
+$border-color-dark: lighten($global-secondary-color, 8);
+
+// Layout
+$top-bar-height: 64px;
+$footer-height: 48px;
+
+// Offcanvas
+$offcanvas-size-base: 275px;

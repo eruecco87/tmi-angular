@@ -1,0 +1,8 @@
+{
+  "core": {
+    "networkIndicator": {
+      "offline": "Estás Fuera de Línea",
+      "online": "En Línea"
+    }
+  }
+}

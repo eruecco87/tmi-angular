@@ -1,0 +1,22 @@
+@import "../../../../theme/variables";
+@import "../../../../../node_modules/uikit/src/scss/variables-theme";
+
+app-logo {
+
+  &.main-logo {
+    position: relative;
+    top: -5px;
+  }
+}
+
+.post-date {
+  background: $global-inverse-color;
+  color: $global-color;
+}
+
+::ng-deep {
+
+  .more-link {
+    display: none;
+  }
+}

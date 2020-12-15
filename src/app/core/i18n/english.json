@@ -1,0 +1,8 @@
+{
+  "core": {
+    "networkIndicator": {
+      "offline": "You're currently offline",
+      "online": "Online"
+    }
+  }
+}

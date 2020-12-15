@@ -1,0 +1,69 @@
+<div class="uk-card uk-background-default uk-card-border-{{ cardType }} uk-border">
+
+  <small class="uk-card-header uk-padding-small uk-text-bold uk-text-uppercase uk-cursor-pointer" (click)="collapsed = !collapsed">
+    {{ name }} <fa-icon class="uk-float-right" [icon]="collapsed ? 'eye' : 'eye-slash'"></fa-icon>
+  </small>
+
+  <div *ngIf="!collapsed" class="uk-card-body uk-padding-small">
+
+    <ng-container *ngIf="columns && columns.length">
+
+      <div *ngIf="!mergeColumns" class="uk-grid uk-child-width-1-{{ columns.length }}" uk-grid>
+
+        <div *ngFor="let column of columns">
+
+            <h6 class="uk-text-bold uk-text-center uk-text-uppercase uk-margin-small-bottom">{{ tagService.categoryNameToHumanReadable(tagCategory[column]) }}</h6>
+
+            <div class="uk-text-center" *ngIf="tagService.getCategoryTags(column, tags, status) && tagService.getCategoryTags(column, tags).length">
+
+              <span class="uk-label uk-label-{{ cardType }} uk-text-bold uk-margin-small-right" *ngFor="let tag of tagService.getCategoryTags(column, tags)"><fa-icon [icon]="'tag'"></fa-icon> {{ tag.tagName }}</span>
+
+            </div>
+
+            <div class="uk-text-center" *ngIf="!tagService.getCategoryTags(column, tags, status) || !tagService.getCategoryTags(column, tags).length">
+
+              <span class="uk-text-small uk-text-muted">{{ 'tagsCard.noTagsForCategory' | translate }}</span>
+
+            </div>
+
+        </div>
+
+      </div>
+
+      <ng-container *ngIf="mergeColumns">
+
+        <ng-container *ngIf="tagService.mergeCategoriesTags(columns, tags, status) && tagService.mergeCategoriesTags(columns, tags, status).length">
+
+          <span class="uk-label uk-label-{{ cardType }} uk-text-bold uk-margin-small-right" *ngFor="let tag of tagService.mergeCategoriesTags(columns, tags, status)"><fa-icon [icon]="'tag'"></fa-icon> {{ tag.tagName }}</span>
+
+        </ng-container>
+
+        <div class="uk-text-center" *ngIf="!tagService.mergeCategoriesTags(columns, tags, status) || !tagService.mergeCategoriesTags(columns, tags, status).length">
+
+          <span class="uk-text-small uk-text-muted">{{ 'tagsCard.noTagsForCategory' | translate }}</span>
+
+        </div>
+
+      </ng-container>
+
+    </ng-container>
+
+    <ng-container *ngIf="!columns">
+
+      <ng-container *ngIf="tagService.filterTagsByStatus(tags, status) && tagService.filterTagsByStatus(tags, status).length">
+
+        <span class="uk-label uk-label-{{ cardType }} uk-text-bold uk-margin-small-right" *ngFor="let tag of tagService.filterTagsByStatus(tags, status)"><fa-icon [icon]="'trash'"></fa-icon> {{ tag.tagName }}</span>
+
+      </ng-container>
+
+      <div class="uk-text-center" *ngIf="!tagService.filterTagsByStatus(tags, status) || !tagService.filterTagsByStatus(tags, status).length">
+
+        <span class="uk-text-small uk-text-muted">{{ 'tagsCard.noTagsForCategory' | translate }}</span>
+
+      </div>
+
+    </ng-container>
+
+  </div>
+
+</div>

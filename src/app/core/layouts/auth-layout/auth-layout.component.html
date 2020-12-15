@@ -1,0 +1,29 @@
+<div class="uk-grid-collapse uk-overflow-hidden" uk-grid uk-height-viewport>
+
+    <div class="uk-width-1-1 uk-width-1-3@m uk-width-2-5@l uk-flex uk-flex-middle uk-position-relative uk-background-muted">
+
+        <a [routerLink]="'/'" class="uk-position-absolute uk-position-top-right uk-padding-small">
+            <small><fa-icon [icon]="'home'"></fa-icon> {{ 'authLayout.backHome' | translate }}</small>
+        </a>
+
+        <div class="uk-width-1-1 uk-padding uk-padding-remove-vertical uk-margin-small-top uk-margin-small-bottom">
+
+            <h2 class="uk-text-uppercase uk-text-bold">
+                <span class="uk-display-inline-block uk-margin-small-left uk-text-primary">{{ layoutService.routeConfiguration.pageData.title | translate }}</span>
+            </h2>
+
+            <router-outlet></router-outlet>
+
+        </div>
+
+    </div>
+
+    <div class="uk-visible@m uk-width-2-3@m uk-width-3-5@l uk-background-primary uk-background-pattern uk-flex uk-flex-middle uk-flex-center">
+
+        <div class="uk-padding-small">
+            <app-logo [width]="300" [fill]="'#fff'"></app-logo>
+        </div>
+
+    </div>
+
+</div>

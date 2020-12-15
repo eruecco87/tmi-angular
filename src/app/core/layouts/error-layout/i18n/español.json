@@ -1,0 +1,9 @@
+{
+  "errorLayout": {
+    "back": "Regresar",
+    "home": "Inicio",
+    "resendVerification": "Re-Enviar Verificación",
+    "verificationSent": "El correo de verificación ha sido enviado, por favor revise la bandeja de entrada y folder de SPAM.",
+    "verificationSendError": "Se envió un correo de verificación recientemente, por favor intente de nuevo en unos minutos."
+  }
+}

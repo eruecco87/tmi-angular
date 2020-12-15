@@ -1,0 +1,31 @@
+{
+  "miniDetailPage": {
+    "pageTitle": "Mini",
+    "loading": "Loading Mini",
+    "empty": "No Data Available For This Mini",
+    "createdBy": "Created By",
+    "view": "View On",
+    "helpTag": {
+      "title": "Something looks wrong?",
+      "link": "Help us tag this Mini!"
+    },
+    "tagCards": {
+      "overview": "Tags Overview",
+      "playerCharacter": "Player Character Tags",
+      "additionalModelInfo": "Additional Model Info",
+      "suggestedUses": "Suggested Uses",
+      "suggestedLocations": "Suggested Locations",
+      "helpfulSearch": "Helpful Search Tags",
+      "removed": "Removed Tags"
+    },
+    "similar": "Similar Minis",
+    "pendingAlert": {
+      "title": "Pending Approval",
+      "text": "This model is pending approval. If there aren't any tags below, try adding some. If there are, give it a few days, we only approve a few a day."
+    },
+    "rejectedAlert": {
+      "title": "Rejected",
+      "text": "This model was rejected. There's a few reasons we reject minis, normally because there's a duplicate or it's not made for tabletop gaming. If you think this is a mistake, get in touch on Reddit, Discord, or email using the \"Feedback\" buttons above."
+    }
+  }
+}

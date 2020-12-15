@@ -1,0 +1,10 @@
+@import "../../../../theme/variables";
+@import "../../../../../node_modules/uikit/src/scss/variables-theme.scss";
+
+footer {
+  height: $footer-height;
+
+  p {
+    line-height: $footer-height;
+  }
+}

@@ -1,0 +1,40 @@
+.uk-border {
+  @extend .uk-border-left;
+  @extend .uk-border-right;
+  @extend .uk-border-top;
+  @extend .uk-border-bottom;
+
+  &-top {
+    border-top: $border-size solid $border-color-light;
+  }
+
+  &-right {
+    border-right: $border-size solid $border-color-light;
+  }
+
+  &-bottom {
+    border-bottom: $border-size solid $border-color-light;
+  }
+
+  &-left {
+    border-left: $border-size solid $border-color-light;
+  }
+
+  &-horizontal {
+    @extend .uk-border-left;
+    @extend .uk-border-right;
+  }
+
+  &-vertical {
+    @extend .uk-border-top;
+    @extend .uk-border-bottom;
+  }
+
+  &-dashed {
+    border-style: dashed;
+  }
+
+  &-remove {
+    border: none !important;
+  }
+}

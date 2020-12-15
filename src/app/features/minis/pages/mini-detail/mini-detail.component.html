@@ -1,0 +1,191 @@
+<ng-container *ngIf="mini else loadingMiniTemplate;">
+
+  <ng-container *ngIf="mini.id else noMinisTemplate;">
+
+    <header class="uk-border-bottom uk-padding-small uk-background-secondary">
+
+      <h4 class="uk-margin-remove uk-text-bold">{{ mini.name }}</h4>
+      <h5 class="uk-margin-remove"><small>{{ 'miniDetailPage.createdBy' | translate }}: <a [routerLink]="['/creator', mini.creator.id]">{{ mini.creator.name }}</a></small></h5>
+
+    </header>
+
+    <div class="uk-alert-warning uk-margin-remove uk-border-bottom" uk-alert *ngIf="mini.status === status.Pending || mini.status === status.Unindexed">
+
+      <div class="uk-grid uk-grid-small uk-grid-collapse uk-grid-match" uk-grid>
+
+        <div class="uk-flex uk-flex-middle uk-text-center uk-margin-right uk-margin-left">
+
+          <span><fa-icon [icon]="'info-circle'" [size]="'2x'"></fa-icon></span>
+
+        </div>
+
+        <div class="uk-width-expand">
+
+          <h5 class="uk-text-bold uk-margin-small-bottom">{{ 'miniDetailPage.pendingAlert.title' | translate }}</h5>
+          <p class="uk-margin-remove uk-text-small">{{ 'miniDetailPage.pendingAlert.text' | translate }}</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="uk-alert-danger uk-margin-remove uk-border-bottom" uk-alert *ngIf="mini.status === status.Rejected || mini.status === status.Deleted">
+
+      <div class="uk-grid uk-grid-small uk-grid-collapse uk-grid-match" uk-grid>
+
+        <div class="uk-flex uk-flex-middle uk-text-center uk-margin-right uk-margin-left">
+
+          <span><fa-icon [icon]="'minus-circle'" [size]="'2x'"></fa-icon></span>
+
+        </div>
+
+        <div class="uk-width-expand">
+
+          <h5 class="uk-text-bold uk-margin-small-bottom">{{ 'miniDetailPage.rejectedAlert.title' | translate }}</h5>
+          <p class="uk-margin-remove uk-text-small">{{ 'miniDetailPage.rejectedAlert.text' | translate }}</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="uk-padding">
+
+      <div class="uk-grid" uk-grid>
+
+        <div class="uk-width-1-1 uk-width-1-3@m">
+
+          <div class="uk-card uk-background-default uk-border uk-position-relative">
+
+            <a [href]="mini.link" target="_blank" class="uk-padding-5px uk-position-absolute uk-background-default uk-position-z-index uk-border">
+
+              <img [src]="'https://miniindex.blob.core.windows.net/react-images/' + miniService.getSourceSite(mini.link) + '.png'" width="25" [alt]="mini.name">
+
+            </a>
+
+            <div class="uk-card-media">
+
+              <div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
+
+                <a [href]="mini.link" target="_blank"><img [src]="mini.thumbnail" width="100%" [alt]="mini.name"></a>
+
+              </div>
+
+            </div>
+
+            <a [href]="mini.link" target="_blank" class="uk-button uk-button-primary uk-button-large uk-width-1-1">{{ 'miniDetailPage.view' | translate }} {{ miniService.getSourceSite(mini.link) }}</a>
+
+          </div>
+
+          <div class="uk-alert-primary uk-margin-top uk-border-bottom uk-text-center" uk-alert>
+
+            <fa-icon [icon]="'question-circle'" [size]="'lg'"></fa-icon>
+            <p class="uk-margin-small-top uk-text-small">
+              <strong>{{ 'miniDetailPage.helpTag.title' | translate }}</strong> <br>
+              <a [attr.uk-toggle]="'target: #edit-' + mini.id">{{ 'miniDetailPage.helpTag.link' | translate }}</a>
+            </p>
+
+          </div>
+
+          <div id="edit-{{ mini.id }}" uk-offcanvas="overlay: true; flip: true">
+
+            <div class="uk-offcanvas-bar uk-background-default uk-border-left uk-width-2-3">
+
+              <a class="uk-offcanvas-close uk-text-dark"><fa-icon [icon]="'times'"></fa-icon></a>
+              <app-mini-tag-editor></app-mini-tag-editor>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="uk-width-1-1 uk-width-2-3@m">
+
+          <app-tags-card class="uk-display-block uk-margin-small-bottom"
+                         [name]="'miniDetailPage.tagCards.overview' | translate"
+                         [columns]="[tagCategory.Genre, tagCategory.Use, tagCategory.Scale]"
+                         [tags]="mini.tags">
+          </app-tags-card>
+
+          <app-tags-card class="uk-display-block uk-margin-small-bottom"
+                         [cardType]="'success'"
+                         [name]="'miniDetailPage.tagCards.playerCharacter' | translate"
+                         [columns]="[tagCategory.Race, tagCategory.Gender, tagCategory.Class]"
+                         [tags]="mini.tags">
+          </app-tags-card>
+
+          <app-tags-card class="uk-display-block uk-margin-small-bottom"
+                         [cardType]="'warning'"
+                         [name]="'miniDetailPage.tagCards.additionalModelInfo' | translate"
+                         [columns]="[tagCategory.Weapon, tagCategory.Armor, tagCategory.Clothing, tagCategory.Size]"
+                         [mergeColumns]="true"
+                         [tags]="mini.tags">
+          </app-tags-card>
+
+          <app-tags-card class="uk-display-block uk-margin-small-bottom"
+                         [name]="'miniDetailPage.tagCards.suggestedUses' | translate"
+                         [columns]="[tagCategory.Purpose, tagCategory.CreatureName, tagCategory.CreatureType]"
+                         [mergeColumns]="true"
+                         [tags]="mini.tags">
+          </app-tags-card>
+
+          <app-tags-card class="uk-display-block uk-margin-small-bottom"
+                         [name]="'miniDetailPage.tagCards.suggestedLocations' | translate"
+                         [columns]="[tagCategory.Location]"
+                         [mergeColumns]="true"
+                         [tags]="mini.tags">
+          </app-tags-card>
+
+          <app-tags-card class="uk-display-block uk-margin-small-bottom"
+                         [name]="'miniDetailPage.tagCards.helpfulSearch' | translate"
+                         [columns]="[null, tagCategory.OtherDescription, tagCategory.Alignment]"
+                         [mergeColumns]="true"
+                         [tags]="mini.tags">
+          </app-tags-card>
+
+          <app-tags-card class="uk-display-block uk-margin-small-bottom"
+                         [cardType]="'danger'"
+                         [name]="'miniDetailPage.tagCards.removed' | translate"
+                         [mergeColumns]="true"
+                         [status]="tagStatus.Deleted"
+                         [tags]="mini.tags">
+          </app-tags-card>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="uk-padding uk-background-muted" *ngIf="mini.relatedMinis.length">
+
+      <h3 class="uk-text-primary uk-text-bold uk-text-uppercase"><fa-icon [icon]="'dice-d20'"></fa-icon> {{ 'miniDetailPage.similar' | translate }}</h3>
+
+      <hr>
+
+      <div class="uk-grid uk-grid-match uk-child-width-1-2 uk-child-width-1-5@m" uk-grid>
+
+        <app-mini-card *ngFor="let relatedMini of mini.relatedMinis" [mini]="relatedMini"></app-mini-card>
+
+      </div>
+
+    </div>
+
+  </ng-container>
+
+</ng-container>
+
+<ng-template #noMinisTemplate>
+
+  <app-empty-state [icon]="'dice-d20'" [text]="'miniDetailPage.empty' | translate" [iconSize]="'2x'" [textSize]="'20'"></app-empty-state>
+
+</ng-template>
+
+<ng-template #loadingMiniTemplate>
+
+  <app-empty-state [spin]="true" [icon]="'spinner'" [text]="'miniDetailPage.loading' | translate" [iconSize]="'2x'" [textSize]="'20'"></app-empty-state>
+
+</ng-template>

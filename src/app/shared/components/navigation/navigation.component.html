@@ -1,0 +1,9 @@
+<ul class="uk-nav uk-nav-default">
+  <li class="uk-nav-header uk-text-bold">{{ 'navigation.menu' | translate }}</li>
+  <li [routerLinkActive]="'uk-active'"><a [routerLink]="'/minis'"><fa-icon [icon]="'dice-d20'" class="uk-margin-small-right"></fa-icon> {{ 'navigation.minis' | translate }}</a></li>
+  <li [routerLinkActive]="'uk-active'"><a [routerLink]="'/creators'"><fa-icon [icon]="'portrait'" class="uk-margin-small-right"></fa-icon> {{ 'navigation.creators' | translate }}</a></li>
+  <li class="uk-nav-divider"></li>
+  <li [routerLinkActive]="'uk-active'"><a [routerLink]="'/about'"><fa-icon [icon]="'bullseye'" class="uk-margin-small-right"></fa-icon> {{ 'navigation.about' | translate }}</a></li>
+</ul>
+
+<a class="uk-button uk-button-secondary uk-width-1-1 uk-margin-top">{{ 'navigation.add' | translate }}</a>

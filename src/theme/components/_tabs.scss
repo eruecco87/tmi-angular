@@ -1,0 +1,17 @@
+.uk-tab {
+
+  li {
+
+    a {
+      color: $global-muted-color;
+    }
+
+    &.uk-active {
+
+      > a, > span {
+        color: $global-primary-background !important;
+        border-color: $global-primary-background !important;
+      }
+    }
+  }
+}

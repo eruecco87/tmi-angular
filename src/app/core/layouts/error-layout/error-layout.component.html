@@ -1,0 +1,33 @@
+<div class="uk-background-primary uk-background-pattern">
+
+    <div class="uk-flex uk-flex-center uk-flex-middle uk-position-relative" uk-height-viewport="min-height: 400">
+
+        <div class="uk-container uk-container-small uk-flex-auto uk-text-center">
+
+            <div class="uk-margin-medium-bottom">
+
+              <app-logo [width]="250" [fill]="'#fff'"></app-logo>
+
+            </div>
+
+            <div class="uk-light">
+
+                <router-outlet></router-outlet>
+
+            </div>
+
+            <div class="uk-margin-medium-top uk-light">
+
+              <a [routerLink]="'/'" class="uk-button uk-button-secondary uk-button-large uk-width-2-3 uk-width-auto@s"><fa-icon [icon]="'home'"></fa-icon> {{ 'errorLayout.home' | translate }}</a>
+
+            </div>
+
+        </div>
+
+        <div class="uk-position-bottom-center uk-position-small uk-light">
+            <app-footer></app-footer>
+        </div>
+
+    </div>
+
+</div>

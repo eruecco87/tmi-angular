@@ -1,0 +1,31 @@
+{
+  "miniDetailPage": {
+    "pageTitle": "Mini",
+    "loading": "Cargando Mini",
+    "empty": "No Hay Datos Para Ésta Mini",
+    "createdBy": "Creada Por",
+    "view": "View On",
+    "helpTag": {
+      "title": "Ves algo mal?",
+      "link": "Ayudanos a etiquetar ésta Mini!"
+    },
+    "tagCards": {
+      "overview": "Etiquetas Generales",
+      "playerCharacter": "Etiquetas de Jugador",
+      "additionalModelInfo": "Información Adicional Del Modelo",
+      "suggestedUses": "Usos Sugeridos",
+      "suggestedLocations": "Ubicaciones Sugeridas",
+      "helpfulSearch": "Etiquetas Útiles Para Búsqueda",
+      "removed": "Etiquetas Eliminadas"
+    },
+    "similar": "Minis Similares",
+    "pendingAlert": {
+      "title": "Aprobación Pendiente",
+      "text": "Éste modelo aún no ha sido aprobado. Si no hay etiquetas registradas, intenta agregar una. Si ya las hay, espera un par de días, solo aprobamos unas cuantas por día."
+    },
+    "rejectedAlert": {
+      "title": "Rechazado",
+      "text": "Éste modelo ha sido rechazado. Existen unas cuantas razones para rechazar una mini, normalmente por que hay un duplicado o no está hecha para juegos de mesa. Si crees que esto es un error, ponte en contacto en Reddit, Discord, o por email usando los botones de arriba."
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "errorLayout": {
+    "back": "Go Back",
+    "home": "Home",
+    "resendVerification": "Re-Send Verification",
+    "verificationSent": "Verification email has been sent, please check your inbox and SPAM folder.",
+    "verificationSendError": "A verification email was sent recently, please try again in a few minutes."
+  }
+}

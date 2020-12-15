@@ -1,0 +1,16 @@
+* {
+  scrollbar-color: lighten($global-primary-background, 5) lighten($global-color, 25);
+  scrollbar-width: 0.5em !important;
+}
+
+*::-webkit-scrollbar {
+  width: 0.5em !important;
+}
+
+*::-webkit-scrollbar-track {
+  background: lighten($global-color, 25);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: lighten($global-primary-background, 5);
+}

@@ -1,0 +1,7 @@
+{
+  "notFoundPage": {
+    "pageTitle": "404 No Encontrado",
+    "error": "ERROR 404: Página No Encontrada",
+    "message": "Lo sentimos, la página que buscas no existe."
+  }
+}

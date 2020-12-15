@@ -1,0 +1,31 @@
+<div class="uk-card uk-card-hover uk-border uk-position-relative uk-flex uk-flex-column">
+
+  <a [href]="mini.link" target="_blank" class="uk-padding-5px uk-position-absolute uk-background-default uk-position-z-index uk-box-shadow-small uk-border-right uk-border-bottom">
+
+    <img [src]="'https://miniindex.blob.core.windows.net/react-images/' + miniService.getSourceSite(mini.link) + '.png'" width="25" [alt]="mini.name">
+
+  </a>
+
+  <div class="uk-card-media uk-cursor-pointer" [routerLink]="['/minis', mini.id]" (click)="miniService.miniSelected$.next(mini)">
+
+    <div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
+
+      <img [src]="mini.thumbnail" width="100%" [alt]="mini.name">
+
+    </div>
+
+  </div>
+
+  <div class="uk-card-body uk-padding-small uk-cursor-pointer uk-flex-1 uk-flex uk-flex-middle uk-flex-center" [routerLink]="['/minis', mini.id]" (click)="miniService.miniSelected$.next(mini)">
+    <h6 class="uk-margin-remove uk-text-bold uk-text-center">{{ mini.name }}</h6>
+  </div>
+
+  <div class="uk-card-footer uk-background-muted uk-padding-small uk-border-remove">
+
+    <p class="uk-text-small">
+      <small>{{ 'miniCard.createdBy' | translate }}: <a [routerLink]="['/creator', mini.creator.id]">{{ mini.creator.name }}</a></small>
+    </p>
+
+  </div>
+
+</div>

@@ -1,0 +1,84 @@
+.uk-card {
+  background-color: $global-inverse-color;
+  transition: $animation-background-color !important;
+
+  &-default {
+    background-color: $global-muted-background !important;
+
+    &:hover {
+      background-color: $global-muted-background !important;
+    }
+  }
+
+  &-secondary {
+
+    .uk-card-header {
+      border-color: rgba(255, 255, 255, 0.1) !important;
+    }
+  }
+
+  &-info {
+    background-color: $global-info-background !important;
+    @extend .uk-light;
+
+    &:hover {
+      background-color: $global-info-background !important;
+    }
+  }
+
+  &-success {
+    background-color: $global-success-background !important;
+    @extend .uk-light;
+
+    &:hover {
+      background-color: $global-success-background !important;
+    }
+  }
+
+  &-warning {
+    background-color: $global-warning-background !important;
+    @extend .uk-light;
+
+    &:hover {
+      background-color: $global-warning-background !important;
+    }
+  }
+
+  &-danger {
+    background-color: $global-danger-background !important;
+    @extend .uk-light;
+
+    &:hover {
+      background-color: $global-danger-background !important;
+    }
+  }
+
+  .uk-card-header {
+    border-bottom: $border-size solid rgba(0, 0, 0, 0.1);
+  }
+
+  &-border-primary {
+    border-top: 2px solid;
+    border-top-color: $global-primary-background;
+  }
+
+  &-border-info {
+    border-top: 2px solid;
+    border-top-color: $global-info-background;
+  }
+
+  &-border-success {
+    border-top: 2px solid;
+    border-top-color: $global-success-background;
+  }
+
+  &-border-warning {
+    border-top: 2px solid;
+    border-top-color: $global-warning-background;
+  }
+
+  &-border-danger {
+    border-top: 2px solid;
+    border-top-color: $global-danger-background;
+  }
+}

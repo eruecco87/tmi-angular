@@ -1,0 +1,27 @@
+<nav uk-navbar>
+
+  <div class="uk-navbar-left uk-hidden@m">
+
+    <ul class="uk-navbar-nav">
+      <li><a uk-toggle="target: #offcanvas-nav" type="button"><fa-icon [icon]="'bars'"></fa-icon></a></li>
+    </ul>
+
+  </div>
+
+  <div class="uk-navbar-center">
+
+    <a class="uk-navbar-item uk-logo" [routerLink]="'/'"><app-logo [width]="100"></app-logo></a>
+
+  </div>
+
+  <div class="uk-navbar-right">
+
+    <div class="uk-navbar-item">
+      <a class="uk-margin-small-right" href="https://www.reddit.com/r/theminiindex/" target="_blank" uk-tooltip="title: Reddit"><fa-icon [icon]="['fab', 'reddit']" [size]="'lg'"></fa-icon></a>
+      <a class="uk-margin-small-right" href="https://discord.gg/FDtYRDP" target="_blank" uk-tooltip="title: Discord"><fa-icon [icon]="['fab', 'discord']" [size]="'lg'"></fa-icon></a>
+      <a class="uk-margin-small-right" href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAANAAYEBbR1UMDNUNlVURVhEQzlFUFI5UlEwR0ZISlk5Vi4u" target="_blank" uk-tooltip="title: Feedback"><fa-icon [icon]="'comments'" [size]="'lg'"></fa-icon></a>
+    </div>
+
+  </div>
+
+</nav>

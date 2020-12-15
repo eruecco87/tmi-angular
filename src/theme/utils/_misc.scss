@@ -1,0 +1,19 @@
+.uk-cursor-pointer {
+  cursor: pointer;
+}
+
+.uk-text-decoration-none {
+  text-decoration: none !important;
+
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+.uk-padding-5px {
+  padding: 5px;
+}
+
+.uk-text-dark {
+  color: #333 !important;
+}

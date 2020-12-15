@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  primaryColor: '#64827a',
+  pageTitlePrefix: 'The Mini Index',
+  localStorageKeyPrefix: 'tmi-',
+  notificationTimeout: 5000,
+  api: {
+    url: 'https://theminiindex.com/api',
+    enableMocks: false,
+    mockDelay: 1000
+  }
 };
 
 /*

@@ -1,0 +1,32 @@
+@import "../../../../theme/variables";
+@import "../../../../../node_modules/uikit/src/scss/variables-theme.scss";
+
+#app-layout  {
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+
+  header {
+    height: $top-bar-height;
+  }
+
+  aside {
+
+    .scrollable-container {
+      height: 100vh;
+      max-height: 100vh;
+    }
+  }
+
+  .app-footer {
+    position: relative;
+    top: -1px;
+  }
+}
+
+.scrollable-container {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - #{ $top-bar-height } + 1px);
+  max-height: calc(100vh - #{ $top-bar-height } + 1px);
+}

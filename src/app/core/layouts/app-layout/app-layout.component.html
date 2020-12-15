@@ -1,0 +1,60 @@
+<div id="app-layout" class="uk-grid uk-grid-collapse">
+
+  <aside id="sidebar" class="uk-visible@m uk-width-1-5@m uk-width-1-6@l uk-background-primary">
+
+    <div class="scrollable-container">
+
+      <div class="uk-padding">
+
+        <ng-container [ngTemplateOutlet]="asideTemplate"></ng-container>
+
+      </div>
+
+    </div>
+
+  </aside>
+
+  <main class="uk-width-expand uk-box-shadow-large">
+
+    <header class="uk-background-muted uk-border-bottom uk-flex uk-flex-middle" uk-sticky>
+
+      <app-top-bar class="uk-display-block uk-width-1-1"></app-top-bar>
+
+    </header>
+
+    <div id="content" class="scrollable-container uk-flex uk-flex-column">
+
+      <div class="content uk-flex-1">
+
+        <router-outlet></router-outlet>
+
+      </div>
+
+      <div class="app-footer uk-background-muted uk-border-top">
+
+        <app-footer></app-footer>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+<div id="offcanvas-nav" uk-offcanvas="overlay: true">
+
+  <div class="uk-offcanvas-bar uk-background-primary">
+
+    <a class="uk-offcanvas-close"><fa-icon [icon]="'times'"></fa-icon></a>
+    <ng-container [ngTemplateOutlet]="asideTemplate"></ng-container>
+
+  </div>
+
+</div>
+
+<ng-template #asideTemplate>
+
+  <app-navigation></app-navigation>
+
+</ng-template>

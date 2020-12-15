@@ -1,0 +1,75 @@
+button[disabled]:not(.uk-button-text):not(.uk-button-link) {
+  color: lighten($global-color, 30) !important;
+
+  &:disabled {
+    border: $border-size solid $border-color-light;
+  }
+}
+
+.uk-button-primary {
+  background-color: $global-primary-color !important;
+  color: $global-inverse-color !important;
+
+  &:hover {
+    background-color: $button-primary-hover-background !important;
+  }
+
+  &:active {
+    background-color: $button-primary-active-background !important;
+  }
+
+  &:disabled {
+    background-color: transparent !important;
+  }
+}
+
+.uk-button-secondary {
+  background-color: $global-secondary-color !important;
+  color: $global-inverse-color !important;
+
+  &:hover {
+    background-color: $button-secondary-hover-background !important;
+  }
+
+  &:active {
+    background-color: $button-secondary-active-background !important;
+  }
+
+  &:disabled {
+    background-color: transparent !important;
+  }
+}
+
+.uk-button-success {
+  background-color: $global-success-background !important;
+  color: $global-inverse-color !important;
+
+  &:hover {
+    background-color: darken($global-success-background, 5) !important;
+  }
+
+  &:active {
+    background-color: darken($global-success-background, 5) !important;
+  }
+
+  &:disabled {
+    background-color: transparent !important;
+  }
+}
+
+.uk-button-warning {
+  background-color: $global-warning-background !important;
+  color: $global-inverse-color !important;
+
+  &:hover {
+    background-color: darken($global-warning-background, 5) !important;
+  }
+
+  &:active {
+    background-color: darken($global-warning-background, 5) !important;
+  }
+
+  &:disabled {
+    background-color: transparent !important;
+  }
+}
