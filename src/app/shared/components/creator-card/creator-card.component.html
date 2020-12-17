@@ -1,0 +1,19 @@
+<div class="uk-card uk-card-hover uk-border uk-position-relative uk-flex uk-flex-column">
+
+  <div class="uk-card-header uk-background-primary uk-padding-small uk-text-bold uk-text-center uk-cursor-pointer" [routerLink]="['/creators', creator.id]"><fa-icon [icon]="'portrait'"></fa-icon> {{ creator.name }}</div>
+
+  <div class="uk-card-body uk-padding-small uk-flex-1">
+
+    <ul class="uk-nav">
+      <li *ngFor="let sourceSite of creator.sourceSites"><a [href]="sourceSite.url" target="_blank" class="uk-text-small"><fa-icon [icon]="'link'"></fa-icon> {{ sourceSite.siteName }}</a></li>
+    </ul>
+
+  </div>
+
+  <div class="uk-card-footer uk-padding-small uk-background-muted">
+
+    <div class="uk-text-small uk-text-right"><fa-icon [icon]="'dice-d20'"></fa-icon> <strong>{{ creator.miniCount }}</strong> {{ 'creatorCard.indexed' | translate }}</div>
+
+  </div>
+
+</div>

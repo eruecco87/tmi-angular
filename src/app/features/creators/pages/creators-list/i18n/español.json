@@ -1,0 +1,10 @@
+{
+  "creatorsListPage": {
+    "pageTitle": "Listado de Creadores",
+    "headerTitle": "Todos Los Creadores",
+    "loading": "Cargando Creadores",
+    "empty": "No Hay Creadores Disponibles",
+    "showingResults": "Mostrando resultados para:",
+    "lastPage": "No Hay Más Creadores Disponibles"
+  }
+}

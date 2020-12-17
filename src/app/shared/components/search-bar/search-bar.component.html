@@ -2,11 +2,15 @@
 
   <h2 class="uk-text-primary uk-text-bold uk-text-uppercase">{{ 'searchBar.find' | translate }}</h2>
 
-  <form>
+  <form (ngSubmit)="search()">
 
-    <div class="uk-inline uk-width-1-1">
+    <div class="uk-inline uk-width-5-6">
       <span class="uk-form-icon uk-form-icon-flip"><fa-icon [icon]="'search'"></fa-icon></span>
-      <input class="uk-input uk-width-1-1 search-fld" type="text" [placeholder]="'searchBar.placeHolder' | translate" autofocus>
+      <input class="uk-input uk-width-1-1 search-fld" type="text" [(ngModel)]="searchString" [ngModelOptions]="{ standalone: true }" [placeholder]="'searchBar.placeHolder' | translate" autofocus>
+    </div>
+
+    <div class="uk-inline uk-width-1-6">
+      <button type="submit" [disabled]="!searchString" class="uk-button uk-button-secondary uk-width-1-1">{{ 'searchBar.search' | translate }}</button>
     </div>
 
   </form>

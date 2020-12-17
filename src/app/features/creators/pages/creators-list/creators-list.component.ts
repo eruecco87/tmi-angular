@@ -6,23 +6,23 @@ import { Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 // Models
-import { Mini } from '@core/services/mini/models';
+import { Creator } from '@core/services/creator/models';
 
 // Services
 import { LayoutService } from '@core/services/layout/layout.service';
-import { MiniService } from '@core/services/mini/mini.service';
+import { CreatorService } from "@core/services/creator/creator.service";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './minis-list.component.html',
-  styleUrls: ['./minis-list.component.scss']
+  selector: 'app-creators-list',
+  templateUrl: './creators-list.component.html',
+  styleUrls: ['./creators-list.component.scss']
 })
-export class MinisListComponent implements OnInit, OnDestroy {
+export class CreatorsListComponent implements OnInit, OnDestroy {
 
   public searchString: string;
   public fetching = true;
   public currentPage;
-  public minis: Mini[];
+  public creators: Creator[];
   public lastPage = false;
 
   private subscriptions: Subscription = new Subscription();
@@ -31,7 +31,7 @@ export class MinisListComponent implements OnInit, OnDestroy {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private layoutService: LayoutService,
-    private miniService: MiniService
+    private creatorService: CreatorService
   ) { }
 
   ngOnInit(): void {
@@ -70,19 +70,19 @@ export class MinisListComponent implements OnInit, OnDestroy {
 
     if (this.currentPage === 1) {
 
-      this.minis = null;
+      this.creators = null;
 
     }
 
-    this.miniService.get(this.currentPage, this.searchString).pipe(
+    this.creatorService.get(this.currentPage, this.searchString).pipe(
       take(1)
-    ).subscribe((response: Mini[]) => {
+    ).subscribe((response: Creator[]) => {
 
       this.fetching = false;
 
       if (response) {
 
-        this.minis = [...this.minis ?  this.minis : [], ...response];
+        this.creators = [...this.creators ?  this.creators : [], ...response];
         this.currentPage ++;
 
       } else {
@@ -92,12 +92,6 @@ export class MinisListComponent implements OnInit, OnDestroy {
       }
 
     });
-
-  }
-
-  public clearSearch() {
-
-    this.router.navigate(['/minis']);
 
   }
 

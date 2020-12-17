@@ -2,6 +2,8 @@
   "minisListPage": {
     "pageTitle": "Listado de Minis",
     "loading": "Cargando Minis",
-    "empty": "No Hay Minis Disponibles"
+    "empty": "No Hay Minis Disponibles",
+    "showingResults": "Mostrando resultados para:",
+    "lastPage": "No Hay Más Minis Disponibles"
   }
 }

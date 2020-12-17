@@ -69,7 +69,7 @@
 
               <div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
 
-                <a [href]="mini.link" target="_blank"><img [src]="mini.thumbnail" width="100%" [alt]="mini.name"></a>
+                <a [href]="mini.link" target="_blank"><img [attr.data-src]="mini.thumbnail" width="600" height="600" [alt]="mini.name" uk-img></a>
 
               </div>
 
@@ -79,22 +79,22 @@
 
           </div>
 
-          <div class="uk-alert-primary uk-margin-top uk-border-bottom uk-text-center" uk-alert>
+<!--          <div class="uk-alert-primary uk-margin-top uk-border-bottom uk-text-center" uk-alert>-->
 
-            <fa-icon [icon]="'question-circle'" [size]="'lg'"></fa-icon>
-            <p class="uk-margin-small-top uk-text-small">
-              <strong>{{ 'miniDetailPage.helpTag.title' | translate }}</strong> <br>
-              <a [attr.uk-toggle]="'target: #edit-' + mini.id">{{ 'miniDetailPage.helpTag.link' | translate }}</a>
-            </p>
+<!--            <fa-icon [icon]="'question-circle'" [size]="'lg'"></fa-icon>-->
+<!--            <p class="uk-margin-small-top uk-text-small">-->
+<!--              <strong>{{ 'miniDetailPage.helpTag.title' | translate }}</strong> <br>-->
+<!--              <a [attr.uk-toggle]="'target: #edit-' + mini.id">{{ 'miniDetailPage.helpTag.link' | translate }}</a>-->
+<!--            </p>-->
 
-          </div>
+<!--          </div>-->
 
-          <div id="edit-{{ mini.id }}" uk-offcanvas="overlay: true; flip: true">
+          <div id="edit-{{ mini.id }}" uk-offcanvas="overlay: true; flip: true; mode: none;">
 
-            <div class="uk-offcanvas-bar uk-background-default uk-border-left uk-width-2-3">
+            <div class="uk-offcanvas-bar uk-border-left uk-width-5-6 uk-width-3-4@m">
 
-              <a class="uk-offcanvas-close uk-text-dark"><fa-icon [icon]="'times'"></fa-icon></a>
-              <app-mini-tag-editor></app-mini-tag-editor>
+              <a class="uk-offcanvas-close"><fa-icon [icon]="'times'"></fa-icon></a>
+              <app-mini-tag-editor [mini]="mini"></app-mini-tag-editor>
 
             </div>
 

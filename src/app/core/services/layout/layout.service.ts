@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router'
 import { Title } from '@angular/platform-browser';
 
 // RXJS
-import { Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 
 // NGX Translate
 import { TranslateService } from '@ngx-translate/core';
@@ -24,6 +24,7 @@ export class LayoutService implements OnDestroy {
 
   public primaryColor = environment.primaryColor;
   public routeConfiguration: RouteConfiguration = new RouteConfiguration();
+  public contentScrolled$: Subject<Event> = new Subject<Event>();
 
   private subscriptions: Subscription = new Subscription();
 

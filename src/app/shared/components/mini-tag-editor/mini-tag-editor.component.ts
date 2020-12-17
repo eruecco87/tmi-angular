@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+
+// UIkit
+declare const UIkit: any;
+
+// Models
+import { Mini } from '@core/services/mini/models'
 
 @Component({
   selector: 'app-mini-tag-editor',
@@ -7,9 +13,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MiniTagEditorComponent implements OnInit {
 
+  @ViewChild('guidanceAlert', { read: ElementRef, static: true }) guidanceAlert;
+
+  @Input() mini: Mini;
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
+  public closeAlert() {
+
+    UIkit.alert(this.guidanceAlert.nativeElement).close();
+
+  }
 }

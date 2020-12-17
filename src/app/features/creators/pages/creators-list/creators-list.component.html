@@ -1,0 +1,43 @@
+<section class="uk-section uk-background-muted uk-padding-small uk-border-bottom">
+
+  <h4 class="uk-margin-small-top uk-margin-small-bottom uk-text-primary uk-text-bold uk-text-uppercase">{{ 'creatorsListPage.headerTitle' | translate }}</h4>
+
+</section>
+
+<div class="uk-padding">
+
+  <ng-container *ngIf="creators else loadingCreatorsTemplate;">
+
+    <div *ngIf="creators.length else noCreatorsTemplate;" class="uk-grid uk-grid-match uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l">
+
+      <app-creator-card class="uk-margin-bottom" *ngFor="let creator of creators" [creator]="creator"></app-creator-card>
+
+    </div>
+
+    <div class="uk-margin-small-top" *ngIf="fetching">
+
+      <ng-container [ngTemplateOutlet]="loadingCreatorsTemplate"></ng-container>
+
+    </div>
+
+    <div class="uk-margin-medium-top" *ngIf="lastPage">
+
+      <app-empty-state [icon]="'dice-d20'" [text]="'creatorsListPage.empty' | translate"></app-empty-state>
+
+    </div>
+
+  </ng-container>
+
+</div>
+
+<ng-template #noCreatorsTemplate>
+
+  <app-empty-state [icon]="'dice-d20'" [text]="'creatorsListPage.empty' | translate"></app-empty-state>
+
+</ng-template>
+
+<ng-template #loadingCreatorsTemplate>
+
+  <app-empty-state [spin]="true" [icon]="'spinner'" [text]="'creatorsListPage.loading' | translate"></app-empty-state>
+
+</ng-template>

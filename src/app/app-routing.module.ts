@@ -23,6 +23,16 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'creators',
+    component: AppLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('@features/creators/creators.module').then(m => m.CreatorsModule)
+      }
+    ]
+  },
+  {
     path: 'auth',
     component: AuthLayoutComponent,
     canActivate: [],

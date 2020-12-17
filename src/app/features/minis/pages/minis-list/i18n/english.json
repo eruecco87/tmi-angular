@@ -2,6 +2,8 @@
   "minisListPage": {
     "pageTitle": "Minis List",
     "loading": "Loading Minis",
-    "empty": "No Minis Available"
+    "empty": "No Minis Available",
+    "showingResults": "Showing search results for:",
+    "lastPage": "No More Minis Available"
   }
 }

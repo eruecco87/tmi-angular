@@ -1,6 +1,7 @@
 {
   "searchBar": {
     "find": "Find Minis",
-    "placeHolder": "Type your search"
+    "placeHolder": "Type your search",
+    "search": "Search"
   }
 }

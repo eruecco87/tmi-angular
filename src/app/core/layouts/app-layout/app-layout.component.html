@@ -22,7 +22,7 @@
 
     </header>
 
-    <div id="content" class="scrollable-container uk-flex uk-flex-column">
+    <div id="content" class="scrollable-container uk-flex uk-flex-column" (scroll)="layoutService.contentScrolled$.next($event)">
 
       <div class="content uk-flex-1">
 
@@ -42,7 +42,7 @@
 
 </div>
 
-<div id="offcanvas-nav" uk-offcanvas="overlay: true">
+<div id="offcanvas-nav" uk-offcanvas="overlay: true; mode: none;">
 
   <div class="uk-offcanvas-bar uk-background-primary">
 

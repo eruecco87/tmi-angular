@@ -1,5 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -20,19 +21,20 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { MiniCardComponent } from './components/mini-card/mini-card.component';
 import { TagsCardComponent } from './components/tags-card/tags-card.component';
 import { MiniTagEditorComponent } from './components/mini-tag-editor/mini-tag-editor.component';
+import { CreatorCardComponent } from './components/creator-card/creator-card.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    HttpClientModule,
-    RouterModule,
+      CommonModule,
+      FormsModule,
+      HttpClientModule,
+      RouterModule,
 
-    // NGX Translate
-    TranslateModule,
+      // NGX Translate
+      TranslateModule,
 
-    // Font Awesome
-    FontAwesomeModule,
-
+      // Font Awesome
+      FontAwesomeModule,
   ],
   entryComponents: [],
   declarations: [
@@ -46,7 +48,8 @@ import { MiniTagEditorComponent } from './components/mini-tag-editor/mini-tag-ed
     TopBarComponent,
     MiniCardComponent,
     TagsCardComponent,
-    MiniTagEditorComponent
+    MiniTagEditorComponent,
+    CreatorCardComponent
   ],
   exports: [
     // Components
@@ -59,7 +62,8 @@ import { MiniTagEditorComponent } from './components/mini-tag-editor/mini-tag-ed
     TopBarComponent,
     MiniCardComponent,
     TagsCardComponent,
-    MiniTagEditorComponent
+    MiniTagEditorComponent,
+    CreatorCardComponent
   ]
 })
 export class SharedModule {
