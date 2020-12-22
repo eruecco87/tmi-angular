@@ -32,7 +32,7 @@ export class MiniService {
     private httpClient: HttpClient
   ) { }
 
-  public get(pageIndex: number, searchString: string = null): Observable<Mini[]> {
+  public get(pageIndex: number, searchString: string = null, creatorId: number = null): Observable<Mini[]> {
 
     if (environment.api.enableMocks) {
 
@@ -47,6 +47,7 @@ export class MiniService {
     }
 
     if (searchString) { params['searchString'] = encodeURIComponent(searchString) }
+    if (creatorId) { params['creatorId'] = encodeURIComponent(creatorId) }
 
     return this.httpClient.get<Mini[]>(`${ environment.api.url }/${ this.endpoint }/search`, { params });
 

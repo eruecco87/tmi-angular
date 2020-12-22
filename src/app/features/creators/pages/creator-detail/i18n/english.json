@@ -1,5 +1,8 @@
 {
   "creatorDetailPage": {
-    "pageTitle": "Creador"
+    "pageTitle": "Creator",
+    "loading": "Loading Creator",
+    "empty": "No Data Available For This Creator",
+    "indexed": "Minis Indexed"
   }
 }

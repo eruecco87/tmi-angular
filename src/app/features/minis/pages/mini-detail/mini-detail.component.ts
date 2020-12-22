@@ -6,9 +6,6 @@ import { Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
-// UIkit
-declare const UIkit: any;
-
 // Environment
 import { environment } from '@env/environment';
 

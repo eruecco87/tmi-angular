@@ -13,7 +13,7 @@ import { LayoutService } from '@core/services/layout/layout.service';
 import { MiniService } from '@core/services/mini/mini.service';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-minis-list',
   templateUrl: './minis-list.component.html',
   styleUrls: ['./minis-list.component.scss']
 })
