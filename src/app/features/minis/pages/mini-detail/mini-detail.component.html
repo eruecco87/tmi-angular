@@ -2,7 +2,7 @@
 
   <ng-container *ngIf="mini.id else noMinisTemplate;">
 
-    <header class="uk-border-bottom uk-padding-small uk-background-secondary">
+    <header class="uk-padding-small uk-background-secondary" uk-sticky="offset: 64">
 
       <h4 class="uk-margin-remove uk-text-bold">{{ mini.name }}</h4>
       <h5 class="uk-margin-remove"><small>{{ 'miniDetailPage.createdBy' | translate }}: <a [routerLink]="['/creators', mini.creator.id]">{{ mini.creator.name }}</a></small></h5>
@@ -79,24 +79,9 @@
 
           </div>
 
-<!--          <div class="uk-alert-primary uk-margin-top uk-border-bottom uk-text-center" uk-alert>-->
+          <div class="uk-margin-small-top" [ngSwitch]="miniService.getSourceSite(mini.link)">
 
-<!--            <fa-icon [icon]="'question-circle'" [size]="'lg'"></fa-icon>-->
-<!--            <p class="uk-margin-small-top uk-text-small">-->
-<!--              <strong>{{ 'miniDetailPage.helpTag.title' | translate }}</strong> <br>-->
-<!--              <a [attr.uk-toggle]="'target: #edit-' + mini.id">{{ 'miniDetailPage.helpTag.link' | translate }}</a>-->
-<!--            </p>-->
-
-<!--          </div>-->
-
-          <div id="edit-{{ mini.id }}" uk-offcanvas="overlay: true; flip: true; mode: none;">
-
-            <div class="uk-offcanvas-bar uk-border-left uk-width-5-6 uk-width-3-4@m">
-
-              <a class="uk-offcanvas-close"><fa-icon [icon]="'times'"></fa-icon></a>
-              <app-mini-tag-editor [mini]="mini"></app-mini-tag-editor>
-
-            </div>
+            <app-thingiverse-details *ngSwitchCase="'thingiverse'" [id]="mini.link.split('thing:')[1]"></app-thingiverse-details>
 
           </div>
 
@@ -153,6 +138,27 @@
                          [status]="tagStatus.Deleted"
                          [tags]="mini.tags">
           </app-tags-card>
+
+          <div class="uk-alert-primary uk-margin-top uk-margin-remove-bottom uk-border-bottom uk-text-center" uk-alert>
+
+            <fa-icon [icon]="'question-circle'" [size]="'lg'"></fa-icon>
+            <p class="uk-margin-small-top uk-text-small">
+              <strong>{{ 'miniDetailPage.helpTag.title' | translate }}</strong> <br>
+              <a [attr.uk-toggle]="'target: #edit-' + mini.id">{{ 'miniDetailPage.helpTag.link' | translate }}</a>
+            </p>
+
+          </div>
+
+          <div id="edit-{{ mini.id }}" uk-offcanvas="overlay: true; flip: true; mode: none;">
+
+            <div class="uk-offcanvas-bar uk-width-5-6 uk-width-3-4@m uk-padding-remove">
+
+              <a class="uk-offcanvas-close"><fa-icon [icon]="'times'"></fa-icon></a>
+              <app-mini-tag-editor [mini]="mini"></app-mini-tag-editor>
+
+            </div>
+
+          </div>
 
         </div>
 

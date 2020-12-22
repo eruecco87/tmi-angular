@@ -22,6 +22,7 @@ import { MiniCardComponent } from './components/mini-card/mini-card.component';
 import { TagsCardComponent } from './components/tags-card/tags-card.component';
 import { MiniTagEditorComponent } from './components/mini-tag-editor/mini-tag-editor.component';
 import { CreatorCardComponent } from './components/creator-card/creator-card.component';
+import { ThingiverseDetailsComponent } from './components/thingiverse-details/thingiverse-details.component';
 
 @NgModule({
   imports: [
@@ -49,7 +50,8 @@ import { CreatorCardComponent } from './components/creator-card/creator-card.com
     MiniCardComponent,
     TagsCardComponent,
     MiniTagEditorComponent,
-    CreatorCardComponent
+    CreatorCardComponent,
+    ThingiverseDetailsComponent
   ],
   exports: [
     // Components
@@ -63,7 +65,8 @@ import { CreatorCardComponent } from './components/creator-card/creator-card.com
     MiniCardComponent,
     TagsCardComponent,
     MiniTagEditorComponent,
-    CreatorCardComponent
+    CreatorCardComponent,
+    ThingiverseDetailsComponent
   ]
 })
 export class SharedModule {

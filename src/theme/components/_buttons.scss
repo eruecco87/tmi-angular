@@ -40,6 +40,39 @@ button[disabled]:not(.uk-button-text):not(.uk-button-link) {
   }
 }
 
+.uk-button-muted {
+  background-color: $global-muted-background !important;
+
+  &:hover {
+    background-color: darken($global-muted-background, 5) !important;
+  }
+
+  &:active {
+    background-color: darken($global-muted-background, 5) !important;
+  }
+
+  &:disabled {
+    background-color: transparent !important;
+  }
+}
+
+.uk-button-info {
+  background-color: $global-info-background !important;
+  color: $global-inverse-color !important;
+
+  &:hover {
+    background-color: darken($global-info-background, 5) !important;
+  }
+
+  &:active {
+    background-color: darken($global-info-background, 5) !important;
+  }
+
+  &:disabled {
+    background-color: transparent !important;
+  }
+}
+
 .uk-button-success {
   background-color: $global-success-background !important;
   color: $global-inverse-color !important;
@@ -67,6 +100,23 @@ button[disabled]:not(.uk-button-text):not(.uk-button-link) {
 
   &:active {
     background-color: darken($global-warning-background, 5) !important;
+  }
+
+  &:disabled {
+    background-color: transparent !important;
+  }
+}
+
+.uk-button-danger {
+  background-color: $global-danger-background !important;
+  color: $global-inverse-color !important;
+
+  &:hover {
+    background-color: darken($global-danger-background, 5) !important;
+  }
+
+  &:active {
+    background-color: darken($global-danger-background, 5) !important;
   }
 
   &:disabled {

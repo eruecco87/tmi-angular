@@ -1,0 +1,9 @@
+{
+  "thingiverseDetails": {
+    "loading": "Loading Details From Thingiverse",
+    "details": "View More Details",
+    "name": "Name",
+    "date": "Date Added",
+    "license": "License"
+  }
+}

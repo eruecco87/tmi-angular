@@ -1,0 +1,91 @@
+<ng-container *ngIf="thing else loadingDetails;">
+
+  <a [attr.uk-toggle]="'target: #thingiverse-details-' + thing.id" class="uk-button uk-button-large uk-button-info uk-width-1-1">{{ 'thingiverseDetails.details' | translate }} </a>
+
+  <div id="thingiverse-details-{{ thing.id }}" uk-offcanvas="overlay: true; mode: none;">
+
+    <div class="uk-offcanvas-bar uk-width-1-1 uk-padding-remove">
+
+      <a class="uk-offcanvas-close"><fa-icon [icon]="'times'"></fa-icon></a>
+
+      <div class="uk-grid-collapse" uk-grid>
+
+        <div class="uk-width-1-3 uk-background-muted uk-border-right details">
+
+          <dl class="uk-description-list-divider">
+            <dt class="uk-padding-small uk-padding-remove-bottom uk-text-bold uk-text-small uk-text-uppercase"><fa-icon [icon]="'bullseye'"></fa-icon> {{ 'thingiverseDetails.name' | translate }} </dt>
+            <dd class="uk-padding-small uk-padding-remove-vertical uk-margin-small-bottom uk-text-small">{{ thing.name }}</dd>
+            <dt class="uk-padding-small uk-padding-remove-bottom uk-text-bold uk-text-small uk-text-uppercase"><fa-icon [icon]="'calendar'"></fa-icon> {{ 'thingiverseDetails.date' | translate }} </dt>
+            <dd class="uk-padding-small uk-padding-remove-vertical uk-margin-small-bottom uk-text-small">{{ thing.added | date:'medium' }}</dd>
+            <dt class="uk-padding-small uk-padding-remove-bottom uk-text-bold uk-text-small uk-text-uppercase"><fa-icon [icon]="'file'"></fa-icon> {{ 'thingiverseDetails.license' | translate }} </dt>
+            <dd class="uk-padding-small uk-padding-remove-vertical uk-margin-small-bottom uk-text-small">{{ thing.license }}</dd>
+          </dl>
+
+          <hr>
+
+          <ng-container *ngFor="let part of thing.details_parts">
+
+            <div class="uk-margin-small-top uk-margin-small-bottom" *ngIf="part.data">
+
+              <h4 class="uk-text-uppercase uk-text-bold uk-padding-small uk-padding-remove-vertical">{{ part.name }}</h4>
+
+              <div *ngIf="part.name === 'Summary'">
+
+                <div class="uk-padding-small uk-padding-remove-vertical" *ngFor="let summary of part.data" [innerHTML]="summary.content"></div>
+
+              </div>
+
+              <div *ngIf="part.name === 'Print Settings'">
+
+                <table class="uk-table uk-table-divider uk-table-striped uk-table-small">
+
+                  <tbody>
+
+                    <tr *ngFor="let setting of getPrintSettings(part.data[0])">
+
+                      <th class="uk-text-bold">{{ setting.name }}</th>
+                      <td>{{ setting.value }}</td>
+
+                    </tr>
+
+                  </tbody>
+
+                </table>
+
+              </div>
+
+              <div *ngIf="part.name === 'How I Designed This' || part.name === 'Custom Section'">
+
+                <div class="uk-padding-small uk-padding-remove-vertical" *ngFor="let data of part.data">
+
+                  <img *ngIf="data.image" [attr.data-src]="data.image" width="600" height="600" uk-img>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </ng-container>
+
+        </div>
+
+        <div class="uk-width-2-3 uk-background-default uk-padding details">
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</ng-container>
+
+<ng-template #loadingDetails>
+
+  <span class="uk-button uk-button-large uk-button-muted uk-width-1-1"><fa-icon [icon]="'spinner'" [spin]="true" class="uk-margin-small-right"></fa-icon>{{ 'thingiverseDetails.loading' | translate }} </span>
+
+</ng-template>

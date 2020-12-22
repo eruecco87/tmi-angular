@@ -1,0 +1,8 @@
+@import "../../../../theme/variables";
+@import "../../../../../node_modules/uikit/src/scss/variables-theme.scss";
+
+.details {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

@@ -18,6 +18,7 @@ import { LayoutService } from '@core/services/layout/layout.service';
 import { MiniService } from '@core/services/mini/mini.service';
 import { CreatorService } from '@core/services/creator/creator.service';
 import { TagService } from '@core/services/tag/tag.service';
+import { ThingiverseService } from '@core/services/thingiverse/thingiverse.service';
 
 // Layouts
 import { AuthLayoutComponent } from '@core/layouts/auth-layout/auth-layout.component';
@@ -75,7 +76,8 @@ export class CoreModule {
         LayoutService,
         MiniService,
         CreatorService,
-        TagService
+        TagService,
+        ThingiverseService
       ]
     };
 
