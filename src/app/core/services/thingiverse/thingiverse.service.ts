@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 
 // Models
-import { ThingiverseThing, ThingiverseFile } from '@core/services/thingiverse/models';
+import { ThingiverseThing, ThingiverseImage, ThingiverseFile } from '@core/services/thingiverse/models';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +33,12 @@ export class ThingiverseService {
   public getThing(id: string): Observable<ThingiverseThing> {
 
     return this.httpClient.get<ThingiverseThing>(`${ this.things_endpoint }/${ id }`, { headers: ThingiverseService.getAuthHeaders() });
+
+  }
+
+  public getImages(id: string): Observable<ThingiverseImage[]> {
+
+    return this.httpClient.get<ThingiverseImage[]>(`${ this.things_endpoint }/${ id }/images`, { headers: ThingiverseService.getAuthHeaders() });
 
   }
 

@@ -3,8 +3,10 @@
     "loading": "Cargando Detalles De Thingiverse",
     "details": "Detalles",
     "name": "Nombre",
+    "creator": "Creador",
     "date": "Agregado",
     "license": "Licencia",
+    "tags": "Etiquetas De Thingiverse",
     "files": "Archivos"
   }
 }

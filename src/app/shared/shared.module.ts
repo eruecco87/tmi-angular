@@ -65,7 +65,8 @@ import { ThingiverseDetailsComponent } from './components/thingiverse-details/th
     MiniCardComponent,
     TagsCardComponent,
     MiniTagEditorComponent,
-    CreatorCardComponent
+    CreatorCardComponent,
+    ThingiverseDetailsComponent
   ]
 })
 export class SharedModule {

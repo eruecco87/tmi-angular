@@ -4,7 +4,7 @@ import { Component, ViewEncapsulation, OnInit, Input, OnDestroy } from '@angular
 import { Subscription } from 'rxjs';
 
 // Models
-import { ThingiverseThing, ThingiverseFile } from '@core/services/thingiverse/models';
+import { ThingiverseThing, ThingiverseImage, ThingiverseFile } from '@core/services/thingiverse/models';
 
 // Services
 import { ThingiverseService } from '@core/services/thingiverse/thingiverse.service';
@@ -20,6 +20,7 @@ export class ThingiverseDetailsComponent implements OnInit, OnDestroy {
   @Input() id: string;
 
   public thing: ThingiverseThing;
+  public images: ThingiverseImage[];
   public files: ThingiverseFile[];
   public fileViewerVisible = false;
 
@@ -35,6 +36,14 @@ export class ThingiverseDetailsComponent implements OnInit, OnDestroy {
       this.thingiverseService.getThing(this.id).subscribe((thing: ThingiverseThing) => {
 
         this.thing = thing;
+
+      })
+    );
+
+    this.subscriptions.add(
+      this.thingiverseService.getImages(this.id).subscribe((images: ThingiverseImage[]) => {
+
+        this.images = images;
 
       })
     );

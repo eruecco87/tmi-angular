@@ -3,8 +3,10 @@
     "loading": "Loading Details From Thingiverse",
     "details": "Details",
     "name": "Name",
+    "creator": "Creator",
     "date": "Date Added",
     "license": "License",
+    "tags": "Thingiverse Tags",
     "files": "Files"
   }
 }
