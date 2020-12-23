@@ -8,14 +8,14 @@ import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 
 // Models
-import { ThingiverseThing } from '@core/services/thingiverse/models';
+import { ThingiverseThing, ThingiverseFile } from '@core/services/thingiverse/models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThingiverseService {
 
-  public api = 'https://api.thingiverse.com'
+  public things_endpoint = `${ environment.thingiverse.api }/things`;
 
   constructor(
     private httpClient: HttpClient
@@ -32,19 +32,13 @@ export class ThingiverseService {
 
   public getThing(id: string): Observable<ThingiverseThing> {
 
-    return this.httpClient.get<ThingiverseThing>(`${ this.api }/things/${ id }`, { headers: ThingiverseService.getAuthHeaders() });
+    return this.httpClient.get<ThingiverseThing>(`${ this.things_endpoint }/${ id }`, { headers: ThingiverseService.getAuthHeaders() });
 
   }
 
-  public getFiles(id: string): Observable<any> {
+  public getFiles(id: string): Observable<ThingiverseFile[]> {
 
-    return this.httpClient.get<any>(`${ this.api }/things/${ id }/files`, { headers: ThingiverseService.getAuthHeaders() });
-
-  }
-
-  public getFileDetails(id: string): Observable<any> {
-
-    return this.httpClient.get<any>(`${ this.api }/files/${ id }`, { headers: ThingiverseService.getAuthHeaders() });
+    return this.httpClient.get<ThingiverseFile[]>(`${ this.things_endpoint }/${ id }/files`, { headers: ThingiverseService.getAuthHeaders() });
 
   }
 }

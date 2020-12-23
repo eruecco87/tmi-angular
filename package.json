@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 3000",
+    "start-host": "sudo ng serve --ssl --port 443 --host beta.theminiindex.com --disableHostCheck",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

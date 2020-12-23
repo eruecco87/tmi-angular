@@ -1,9 +1,10 @@
 {
   "thingiverseDetails": {
     "loading": "Loading Details From Thingiverse",
-    "details": "View More Details",
+    "details": "Details",
     "name": "Name",
     "date": "Date Added",
-    "license": "License"
+    "license": "License",
+    "files": "Files"
   }
 }

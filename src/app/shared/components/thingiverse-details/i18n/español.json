@@ -1,6 +1,10 @@
 {
   "thingiverseDetails": {
     "loading": "Cargando Detalles De Thingiverse",
-    "view": "Ver Más Detalles"
+    "details": "Detalles",
+    "name": "Nombre",
+    "date": "Agregado",
+    "license": "Licencia",
+    "files": "Archivos"
   }
 }

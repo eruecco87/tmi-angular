@@ -1,6 +1,6 @@
-<ng-container *ngIf="thing else loadingDetails;">
+<ng-container *ngIf="thing && files else loadingDetails;">
 
-  <a [attr.uk-toggle]="'target: #thingiverse-details-' + thing.id" class="uk-button uk-button-large uk-button-info uk-width-1-1">{{ 'thingiverseDetails.details' | translate }} </a>
+  <a (click)="fileViewerVisible = !fileViewerVisible" [attr.uk-toggle]="'target: #thingiverse-details-' + thing.id" class="uk-button uk-button-large uk-button-info uk-width-1-1">{{ 'thingiverseDetails.details' | translate }} </a>
 
   <div id="thingiverse-details-{{ thing.id }}" uk-offcanvas="overlay: true; mode: none;">
 
@@ -8,38 +8,40 @@
 
       <a class="uk-offcanvas-close"><fa-icon [icon]="'times'"></fa-icon></a>
 
-      <div class="uk-grid-collapse" uk-grid>
+      <div class="uk-grid-match uk-grid-collapse" uk-grid uk-height-viewport>
 
-        <div class="uk-width-1-3 uk-background-muted uk-border-right details">
+        <div class="uk-width-1-3@m uk-background-muted uk-border-right">
 
-          <dl class="uk-description-list-divider">
-            <dt class="uk-padding-small uk-padding-remove-bottom uk-text-bold uk-text-small uk-text-uppercase"><fa-icon [icon]="'bullseye'"></fa-icon> {{ 'thingiverseDetails.name' | translate }} </dt>
-            <dd class="uk-padding-small uk-padding-remove-vertical uk-margin-small-bottom uk-text-small">{{ thing.name }}</dd>
-            <dt class="uk-padding-small uk-padding-remove-bottom uk-text-bold uk-text-small uk-text-uppercase"><fa-icon [icon]="'calendar'"></fa-icon> {{ 'thingiverseDetails.date' | translate }} </dt>
-            <dd class="uk-padding-small uk-padding-remove-vertical uk-margin-small-bottom uk-text-small">{{ thing.added | date:'medium' }}</dd>
-            <dt class="uk-padding-small uk-padding-remove-bottom uk-text-bold uk-text-small uk-text-uppercase"><fa-icon [icon]="'file'"></fa-icon> {{ 'thingiverseDetails.license' | translate }} </dt>
-            <dd class="uk-padding-small uk-padding-remove-vertical uk-margin-small-bottom uk-text-small">{{ thing.license }}</dd>
-          </dl>
+          <div class="scroll" uk-height-viewport>
 
-          <hr>
+            <dl class="uk-description-list-divider">
+              <dt class="uk-padding-small uk-padding-remove-bottom uk-text-bold uk-text-small uk-text-uppercase"><fa-icon [icon]="'bullseye'"></fa-icon> {{ 'thingiverseDetails.name' | translate }}</dt>
+              <dd class="uk-padding-small uk-padding-remove-vertical uk-margin-small-bottom uk-text-small">{{ thing.name }}</dd>
+              <dt class="uk-padding-small uk-padding-remove-bottom uk-text-bold uk-text-small uk-text-uppercase"><fa-icon [icon]="'calendar'"></fa-icon> {{ 'thingiverseDetails.date' | translate }}</dt>
+              <dd class="uk-padding-small uk-padding-remove-vertical uk-margin-small-bottom uk-text-small">{{ thing.added | date:'medium' }}</dd>
+              <dt class="uk-padding-small uk-padding-remove-bottom uk-text-bold uk-text-small uk-text-uppercase"><fa-icon [icon]="'file'"></fa-icon> {{ 'thingiverseDetails.license' | translate }}</dt>
+              <dd class="uk-padding-small uk-padding-remove-vertical uk-margin-small-bottom uk-text-small">{{ thing.license }}</dd>
+            </dl>
 
-          <ng-container *ngFor="let part of thing.details_parts">
+            <hr>
 
-            <div class="uk-margin-small-top uk-margin-small-bottom" *ngIf="part.data">
+            <ng-container *ngFor="let part of thing.details_parts">
 
-              <h4 class="uk-text-uppercase uk-text-bold uk-padding-small uk-padding-remove-vertical">{{ part.name }}</h4>
+              <div class="uk-margin-small-top uk-margin-small-bottom" *ngIf="part.data">
 
-              <div *ngIf="part.name === 'Summary'">
+                <h4 class="uk-text-uppercase uk-text-bold uk-padding-small uk-padding-remove-vertical">{{ part.name }}</h4>
 
-                <div class="uk-padding-small uk-padding-remove-vertical" *ngFor="let summary of part.data" [innerHTML]="summary.content"></div>
+                <div *ngIf="part.name === 'Summary'">
 
-              </div>
+                  <div class="uk-padding-small uk-padding-remove-vertical" *ngFor="let summary of part.data" [innerHTML]="summary.content"></div>
 
-              <div *ngIf="part.name === 'Print Settings'">
+                </div>
 
-                <table class="uk-table uk-table-divider uk-table-striped uk-table-small">
+                <div *ngIf="part.name === 'Print Settings'">
 
-                  <tbody>
+                  <table class="uk-table uk-table-divider uk-table-striped uk-table-small">
+
+                    <tbody>
 
                     <tr *ngFor="let setting of getPrintSettings(part.data[0])">
 
@@ -48,31 +50,82 @@
 
                     </tr>
 
-                  </tbody>
+                    </tbody>
 
-                </table>
+                  </table>
 
-              </div>
+                </div>
 
-              <div *ngIf="part.name === 'How I Designed This' || part.name === 'Custom Section'">
+                <div *ngIf="part.name === 'How I Designed This' || part.name === 'Custom Section'">
 
-                <div class="uk-padding-small uk-padding-remove-vertical" *ngFor="let data of part.data">
+                  <div class="uk-padding-small uk-padding-remove-vertical" *ngFor="let data of part.data">
 
-                  <img *ngIf="data.image" [attr.data-src]="data.image" width="600" height="600" uk-img>
+                    <img *ngIf="data.image" [attr.data-src]="data.image" width="600" height="600" uk-img>
+
+                  </div>
 
                 </div>
 
               </div>
 
-            </div>
+            </ng-container>
 
-          </ng-container>
+          </div>
 
         </div>
 
-        <div class="uk-width-2-3 uk-background-default uk-padding details">
+        <div class="uk-width-2-3@m uk-background-default">
 
+          <div class="uk-padding scroll" uk-height-viewport>
 
+            <h3 class="uk-text-bold uk-text-uppercase uk-margin-remove">{{ 'thingiverseDetails.files' | translate }}</h3>
+
+            <hr>
+
+            <div class="uk-grid uk-grid-match" uk-grid>
+
+              <ng-container *ngFor="let file of files">
+
+                <div class="uk-width-1-2 uk-width-1-4@m" *ngIf="file.default_image && file.default_image.url">
+
+                  <div class="uk-card uk-card-hover uk-border uk-position-relative uk-flex uk-flex-column">
+
+                    <div class="uk-card-media">
+
+                      <div class="uk-inline-clip uk-transition-toggle uk-width-1-1">
+
+                        <img [attr.data-src]="file.default_image.sizes && file.default_image.sizes[5] ? file.default_image.sizes[5].url : file.thumbnail" width="600" height="600" [alt]="file.name" uk-img>
+
+                      </div>
+
+                    </div>
+
+                    <div class="uk-card-body uk-padding-small uk-cursor-pointer uk-flex-1 uk-flex uk-flex-middle uk-flex-center">
+
+                      <div class="uk-text-center">
+
+                        <h6 class="uk-margin-remove uk-text-bold uk-text-center">{{ file.name }}</h6>
+                        <p class="uk-margin-remove uk-text-muted uk-text-small uk-text-uppercase">{{ file.formatted_size }}</p>
+
+                      </div>
+
+                    </div>
+
+                    <div class="uk-card-footer uk-background-muted uk-padding-small uk-border-remove uk-text-center">
+
+                      <a [href]="file.default_image.url" target="_blank" class="uk-button uk-button-secondary uk-width-1-1"><fa-icon [icon]="'download'"></fa-icon></a>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </ng-container>
+
+            </div>
+
+          </div>
 
         </div>
 
