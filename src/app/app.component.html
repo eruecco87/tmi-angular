@@ -1,24 +1,20 @@
-<div [ngClass]="{ 'uk-background-muted': isApp }">
+<router-outlet></router-outlet>
 
-  <router-outlet></router-outlet>
+<div class="connectivity-indicator uk-background-danger uk-position-absolute uk-position-bottom uk-margin-remove" *ngIf="!isOnline" uk-alert>
 
-  <div class="connectivity-indicator uk-background-danger uk-position-absolute uk-position-bottom uk-margin-remove" *ngIf="!isOnline" uk-alert>
+  <p class="uk-text-right">
+    <fa-icon class="uk-margin-small-right" [icon]="'wifi'"></fa-icon>
+    <span>{{ 'core.networkIndicator.offline' | translate }}</span>
+  </p>
 
-    <p class="uk-text-right">
-      <fa-icon class="uk-margin-small-right" [icon]="'wifi'"></fa-icon>
-      <span>{{ 'core.networkIndicator.offline' | translate }}</span>
-    </p>
+</div>
 
-  </div>
+<div class="connectivity-indicator uk-background-success uk-position-absolute uk-position-bottom uk-margin-remove" *ngIf="isOnline && backOnline" uk-alert>
 
-  <div class="connectivity-indicator uk-background-success uk-position-absolute uk-position-bottom uk-margin-remove" *ngIf="isOnline && backOnline" uk-alert>
-
-    <p class="uk-text-right">
-      <fa-icon class="uk-margin-small-right" [icon]="'wifi'"></fa-icon>
-      <span>{{ 'core.networkIndicator.online' | translate }}</span>
-    </p>
-
-  </div>
+  <p class="uk-text-right">
+    <fa-icon class="uk-margin-small-right" [icon]="'wifi'"></fa-icon>
+    <span>{{ 'core.networkIndicator.online' | translate }}</span>
+  </p>
 
 </div>
 

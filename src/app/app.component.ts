@@ -23,7 +23,6 @@ export class AppComponent {
   public isOnline = true;
   public backOnline = false;
   public showRouteLoader = false;
-  public isApp = false;
 
   private online$: Observable<Event>;
   private offline$: Observable<Event>;
@@ -50,7 +49,6 @@ export class AppComponent {
         if (event instanceof NavigationEnd || event instanceof NavigationCancel) {
 
           this.showRouteLoader = false;
-          this.isApp = event.url && event.url.startsWith('/app');
 
         }
 
