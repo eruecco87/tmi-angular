@@ -1,4 +1,4 @@
-<router-outlet></router-outlet>
+<router-outlet *ngIf="!showRouteLoader"></router-outlet>
 
 <div class="connectivity-indicator uk-background-danger uk-position-absolute uk-position-bottom uk-margin-remove" *ngIf="!isOnline" uk-alert>
 
