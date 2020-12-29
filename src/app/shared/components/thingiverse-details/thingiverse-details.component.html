@@ -1,12 +1,12 @@
 <ng-container *ngIf="thing && files else loadingDetails;">
 
-  <a (click)="fileViewerVisible = !fileViewerVisible" [attr.uk-toggle]="'target: #thingiverse-details-' + thing.id" class="uk-button uk-button-large uk-button-info uk-width-1-1">{{ 'thingiverseDetails.details' | translate }} </a>
+  <a [attr.uk-toggle]="'target: #thingiverse-details-' + thing.id" class="uk-button uk-button-large uk-button-info uk-width-1-1">{{ 'thingiverseDetails.details' | translate }} </a>
 
   <div id="thingiverse-details-{{ thing.id }}" uk-offcanvas="overlay: true; mode: none;">
 
     <div class="uk-offcanvas-bar uk-width-1-1 uk-padding-remove">
 
-      <a class="uk-offcanvas-close uk-light"><fa-icon [icon]="'times'"></fa-icon></a>
+      <a class="uk-offcanvas-close"><fa-icon [icon]="'times'"></fa-icon></a>
 
       <div class="uk-grid-match uk-grid-collapse" uk-grid>
 
@@ -123,7 +123,7 @@
 
                       <div class="uk-text-center">
 
-                        <h6 class="uk-margin-remove uk-text-bold uk-text-center">{{ file.name }}</h6>
+                        <h6 class="uk-margin-remove uk-text-bold uk-text-center uk-text-break" style="word-break: break-word;">{{ file.name }}</h6>
                         <p class="uk-margin-remove uk-text-muted uk-text-small uk-text-uppercase">{{ file.formatted_size }}</p>
 
                       </div>

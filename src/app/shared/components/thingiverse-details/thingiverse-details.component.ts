@@ -22,7 +22,6 @@ export class ThingiverseDetailsComponent implements OnInit, OnDestroy {
   public thing: ThingiverseThing;
   public images: ThingiverseImage[];
   public files: ThingiverseFile[];
-  public fileViewerVisible = false;
 
   private subscriptions: Subscription = new Subscription();
 
