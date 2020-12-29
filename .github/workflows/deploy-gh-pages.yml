@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Angular Build & Deploy
-        uses: AhsanAyaz/angular-deploy-gh-pages-actions@latest
+        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.1
         with:
           github_access_token: ${{ secrets.GH_PAGES_DEPLOY }}
           build_configuration: production
